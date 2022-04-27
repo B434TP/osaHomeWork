@@ -32,6 +32,10 @@ public class Person {
                 ", age='" + age + '\'' +
                 '}';
     }
+
+    public int getAge() {
+        return age;
+    }
 }
 
 

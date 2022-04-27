@@ -13,7 +13,7 @@ public class Main {
 
 
         for (Person person: persArray) {
-            if (person.age >40) {
+            if (person.getAge() > 40) {
                 person.printInfo();
             }
         }
