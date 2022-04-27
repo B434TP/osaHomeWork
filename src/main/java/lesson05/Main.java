@@ -12,9 +12,9 @@ public class Main {
         persArray[4] = new Person("Frolova Ivanka ","Administrator", "rybka@mail.ru", "65342435464", 70000,45);
 
 
-        for (int i = 0; i < persArray.length; i++) {
-            if (persArray[i].age >40) {
-                persArray[i].printInfo();
+        for (Person person: persArray) {
+            if (person.age >40) {
+                person.printInfo();
             }
         }
     }
