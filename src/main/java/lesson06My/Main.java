@@ -59,5 +59,7 @@ public class Main {
         pw.close();
 
         sc.close();
+
+        System.out.println(Color.RED.getRussianColor());
     }
 }
