@@ -13,7 +13,6 @@ public class Main {
         printArray(myArray);
 
 
-
         int arraySum = 0;
 
         try {
