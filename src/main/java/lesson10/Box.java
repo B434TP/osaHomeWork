@@ -15,9 +15,13 @@ public class Box<E extends Fruit> {
 
     public void addFruit(E newFruit) throws FullBoxException {
         if (currentSize < MAX_SIZE) {
-
-            fruitsList[currentSize] = newFruit;
-            currentSize++;
+            for (int i = 0; i < MAX_SIZE; i++) {
+                if (fruitsList[i] == null) {
+                    fruitsList[i] = newFruit;
+                    currentSize++;
+                    return;
+                }
+            }
         } else {
             throw new FullBoxException(this.name, newFruit.toString());
         }
@@ -69,12 +73,10 @@ public class Box<E extends Fruit> {
             throw new WrongBoxTypeReloadException(this.type, boxToFill.getType());
         }
 
-        for (int i = 0; i < currentSize; i++) {
+        for (int i = 0; i < MAX_SIZE; i++) {
             try {
                 boxToFill.addFruit(this.getFruit(i));
             } catch (FullBoxException e) {
-                e.printStackTrace();
-            } catch (NoFruitException e) {
                 e.printStackTrace();
             }
         }
@@ -82,14 +84,17 @@ public class Box<E extends Fruit> {
 
     }
 
-    public Fruit getFruit(int fruitIndex) throws NoFruitException {
+    public Fruit getFruit(int fruitIndex) {
         Fruit fruitToReturn;
 
         if (fruitsList[fruitIndex] != null){
             fruitToReturn = fruitsList[fruitIndex];
             fruitsList[fruitIndex] = null;
+            currentSize--;
         } else {
-            throw new NoFruitException(this.name);
+            return null;
+//            throw new NoFruitException(fruitIndex, this.name);
+
         }
         return fruitToReturn;
     }

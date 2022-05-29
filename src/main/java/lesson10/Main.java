@@ -80,27 +80,24 @@ public class Main {
         System.out.println(boxForApple1.compare(boxForOrange1));
 
 
-
-//        boxReloading(boxForApple1, boxForOrange2);
-
-        System.out.println("Removing one fruit from box");
+        System.out.println("\nRemoving one apple from box");
         boxForApple1.show();
-
-        try {
-            boxForApple1.getFruit(2);
-        } catch (NoFruitException e) {
-            e.printStackTrace();
-        }
+        Apple oneApple = null;
+        oneApple = (Apple) boxForApple1.getFruit(2);
 
         boxForApple1.show();
 
+        System.out.println("\nBack one apple to box");
+
         try {
-            boxForApple1.getFruit(2);
-        } catch (NoFruitException e) {
+            boxForApple1.addFruit(oneApple);
+        } catch (FullBoxException e) {
             e.printStackTrace();
         }
+        boxForApple1.show();
 
-        System.out.println("Reloading fruits from one box to another");
+
+        System.out.println("\nReloading fruits from one box to another");
         boxForOrange1.show();
         try {
             boxForOrange1.reload(boxForOrange2);
