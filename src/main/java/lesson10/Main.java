@@ -87,7 +87,6 @@ public class Main {
 
         boxForApple1.show();
 
-
         System.out.println("\nBack one apple to box");
 
         try {

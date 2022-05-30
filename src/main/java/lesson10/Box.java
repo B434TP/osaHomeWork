@@ -8,6 +8,7 @@ public class Box<E extends Fruit> {
 
     private E[] fruitsList;
 
+
     public void addFruit(E newFruit) throws FullBoxException {
         if (currentSize < MAX_SIZE) {
             for (int i = 0; i < MAX_SIZE; i++) {
