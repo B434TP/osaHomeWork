@@ -8,11 +8,6 @@ public class Box<E extends Fruit> {
 
     private E[] fruitsList;
 
-
-
-
-
-
     public void addFruit(E newFruit) throws FullBoxException {
         if (currentSize < MAX_SIZE) {
             for (int i = 0; i < MAX_SIZE; i++) {
@@ -31,8 +26,10 @@ public class Box<E extends Fruit> {
     public double getWeight() {
         double weight = 0;
 
-        for (int i = 0; i < this.currentSize; i++) {
-            weight += this.fruitsList[i].getOneFruitWeight();
+        for (int i = 0; i < MAX_SIZE; i++) {
+            if (this.fruitsList[i] != null) {
+                weight += this.fruitsList[i].getOneFruitWeight();
+            }
         }
         return weight;
     }
@@ -87,7 +84,7 @@ public class Box<E extends Fruit> {
     public Fruit getFruit(int fruitIndex) {
         Fruit fruitToReturn;
 
-        if (fruitsList[fruitIndex] != null){
+        if (fruitsList[fruitIndex] != null) {
             fruitToReturn = fruitsList[fruitIndex];
             fruitsList[fruitIndex] = null;
             currentSize--;

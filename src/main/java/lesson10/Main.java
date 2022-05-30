@@ -74,9 +74,9 @@ public class Main {
         boxForOrange1.show();
         System.out.println("weight = " + boxForOrange1.getWeight());
 
-        System.out.print("Comparing weights of first and second boxes with apples: ");
+        System.out.print("\nComparing weights of first and second boxes with apples: ");
         System.out.println(boxForApple1.compare(boxForApple2));
-        System.out.print("Comparing weights of first box with apples with first box with oranges: ");
+        System.out.print("\nComparing weights of first box with apples with first box with oranges: ");
         System.out.println(boxForApple1.compare(boxForOrange1));
 
 
@@ -86,6 +86,7 @@ public class Main {
         oneApple = (Apple) boxForApple1.getFruit(2);
 
         boxForApple1.show();
+
 
         System.out.println("\nBack one apple to box");
 

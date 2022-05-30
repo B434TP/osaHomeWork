@@ -6,6 +6,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+//        oldTest1();
+
+        OrdinaryClass myClass = new OrdinaryClass();
+
+
+    }
+
+    private static void oldTest1() throws IOException {
         String s1 = "Abc";
         String s2 = "Abc";
         String s3 = "abc";
@@ -39,7 +47,6 @@ public class Main {
         for (int i = 0; i < is.length; i++) {
             System.out.println(is[i]);
         }
-
 
 
         File abIn = new File("src/main/java/lesson06My/ab.txt");
