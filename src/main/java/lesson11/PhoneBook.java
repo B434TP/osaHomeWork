@@ -1,21 +1,42 @@
 package lesson11;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.UUID;
 
 public class PhoneBook {
 
+    private ArrayList<Person> book = new ArrayList<>();
+    private HashMap<UUID, String> namesDic = new HashMap<>();
+
     private class Person {
-        private String name;
+        private UUID nameId;
         private String phone;
 
         public Person(String name, String phone) {
-            this.name = name;
+            this.nameId = getNameId(name);
             this.phone = phone;
         }
 
+        private UUID getNameId(String name) {
+            UUID newPersonId = null;
+
+            if (namesDic.containsValue(name)) {
+                for (UUID key : namesDic.keySet()) {
+                    if (namesDic.get(key) == name) {
+                        newPersonId = key;
+                    }
+                }
+            } else {
+                newPersonId = UUID.randomUUID();
+                namesDic.put(newPersonId, name);
+            }
+            return newPersonId;
+        }
+
         public String getName() {
-            return name;
+            return namesDic.get(this.nameId);
         }
 
         public String getPhone() {
@@ -24,19 +45,17 @@ public class PhoneBook {
 
         @Override
         public String toString() {
-            return name + " - " + phone;
+            return "<" + nameId + "> " + " - " + phone;
         }
     }
 
-    private ArrayList<Person> book = new ArrayList<>();
-
 
     public void add(String name, String phone) {
-        book.add(new Person(name,phone));
-        System.out.println("+ 1 record: <"+ name + "> # " + phone);
+        book.add(new Person(name, phone));
+        System.out.println("+ 1 record: <" + name + "> # " + phone);
     }
 
-    public void findByName(String name){
+    public void get(String name) {
 
         System.out.println("\n Search results for: " + name);
         book.stream()
@@ -45,9 +64,12 @@ public class PhoneBook {
                 .forEach(System.out::println);
     }
 
-    public void showData(){
-        System.out.println("All data: " + book);
+    public void showData() {
+        System.out.println("Phonebook data: " + book);
+
+        System.out.println("Names dictionary data: " + namesDic);
     }
+
 
 }
 

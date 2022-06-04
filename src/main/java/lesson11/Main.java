@@ -42,17 +42,18 @@ public class Main {
     private static void phoneBookTest() {
         PhoneBook phoneBook = new PhoneBook();
 
-        phoneBook.add("Tom", "+7965165102");
+        phoneBook.add("Tom", "+711111111111");
         phoneBook.add("911", "911");
-        phoneBook.add("Tom", "+7965646542");
+        phoneBook.add("Tom", "+722222222222");
+        phoneBook.add("Tom", "+733333333333");
         phoneBook.add("Sergey", "+79035870622");
         phoneBook.add("Oksana", "+19512121212622");
 
         phoneBook.showData();
 
-        phoneBook.findByName("Tom");
-        phoneBook.findByName("Oksana");
-        phoneBook.findByName("test");
+        phoneBook.get("Tom");
+        phoneBook.get("Oksana");
+        phoneBook.get("test");
     }
 
 }
